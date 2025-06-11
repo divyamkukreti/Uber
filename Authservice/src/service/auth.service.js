@@ -1,6 +1,6 @@
 const { findUserByEmail, createUser } = require('../repository/user.repository');
-const { hashPassword, comparePasswords } = require('../utils/hash.util');
-const { generateToken } = require('../utils/jwt.util');
+const { hashPassword, comparePasswords } = require('../utils/hash.utils');
+const { generateToken } = require('../utils/jwt.utils');
 
 const register = async ({ name, email, password }) => {
   const existingUser = await findUserByEmail(email);
@@ -25,7 +25,7 @@ const login = async ({ email, password }) => {
 
   const token = generateToken({ id: user._id, email: user.email });
 
-  return { user, token };
+  return { user, token};
 };
 
 
