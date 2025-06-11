@@ -29,8 +29,13 @@ const login = async ({ email, password }) => {
 };
 
 
+const getprofile = async()=>{
+    return true
+}
 
+ 
 module.exports = {
   register,
   login,
+  getprofile
 };
