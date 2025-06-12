@@ -1,6 +1,6 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
-
+const {validationResult} =  require("express-validator")
 const middleware = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
@@ -27,5 +27,7 @@ const middleware = async (req, res, next) => {
     }
   }
 };
+
+
 
 module.exports = middleware;
