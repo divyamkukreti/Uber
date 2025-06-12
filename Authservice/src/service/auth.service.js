@@ -29,7 +29,7 @@ const login = async ({ email, password }) => {
 };
 
 
-const getprofile = async()=>{
+const getprofile = ()=>{
     return true
 }
 
