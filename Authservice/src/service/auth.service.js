@@ -9,7 +9,7 @@ const register = async ({ name, email, password }) => {
   const hashedPassword = await hashPassword(password);
   const user = await createUser({ name, email, password: hashedPassword });
 
-  const token = generateToken({ id: user._id, email: user.email });
+  const token = generateToken({ id: user._id, email: user.email, roles:user.role });
 
   return { user, token };
 };
@@ -23,7 +23,7 @@ const login = async ({ email, password }) => {
   const isMatch = await comparePasswords(password, user.password);
   if (!isMatch) throw new Error("Password does not match");
 
-  const token = generateToken({ id: user._id, email: user.email });
+  const token = generateToken({ id: user._id, email: user.email,roles:user.role });
 
   return { user, token};
 };
